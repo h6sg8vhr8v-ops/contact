@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Ajouter le contact — Jonathan De Longue Épée-Marcil</title>
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f1b32; --muted:#a8b3c7; --text:#e9eef8;
+      --line:rgba(255,255,255,.12); --accent:#f2b400; --accent2:#1f6fff;
+      --ok:#18c37e; --shadow: 0 14px 40px rgba(0,0,0,.35); --radius:18px;
+      --max: 980px; --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:var(--font); color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(31,111,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(242,180,0,.14), transparent 55%),
+        var(--bg);
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 44px;}
+    header{display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:18px;}
+    .kicker{display:inline-flex; gap:10px; align-items:center; font-size:13px; color:var(--muted);}
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--ok);box-shadow:0 0 0 4px rgba(24,195,126,.16);}
+    h1{margin:0; font-size:clamp(22px,3.4vw,32px); line-height:1.15;}
+    .sub{margin:0; color:var(--muted); font-size:14.5px; line-height:1.45;}
+    .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin-top:16px;}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
+    }
+    .pad{padding:18px;}
+    .row{display:flex; gap:12px; align-items:flex-start; padding:12px; border:1px solid var(--line);
+      border-radius:14px; background:rgba(0,0,0,.14);}
+    .icon{width:34px;height:34px;border-radius:12px;background:rgba(242,180,0,.12);
+      border:1px solid rgba(242,180,0,.26); display:grid; place-items:center; color:var(--accent); font-weight:700;}
+    .row b{display:block; font-size:13px; color:var(--muted); margin-bottom:3px}
+    .row span{display:block; font-size:15px}
+    .row a{text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .row a:hover{border-bottom-color:rgba(255,255,255,.6)}
+    .actions{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;}
+    @media (max-width:520px){.actions{grid-template-columns:1fr}}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; border:1px solid var(--line);
+      background:rgba(255,255,255,.06); font-weight:650; text-decoration:none;
+      transition:transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.20)}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(135deg, rgba(242,180,0,.95), rgba(242,180,0,.72)); border-color:rgba(242,180,0,.35); color:#1b1402;}
+    .btn.secondary{background:linear-gradient(135deg, rgba(31,111,255,.92), rgba(31,111,255,.62)); border-color:rgba(31,111,255,.35); color:#081225;}
+    .note{margin-top:12px; color:var(--muted); font-size:13.5px; line-height:1.45;}
+    .qrImg{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.04);}
+    .qrImg a{display:block; padding:14px; text-decoration:none;}
+    .qrImg img{width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:#fff;}
+    .toggle{border:1px solid var(--line); background:rgba(255,255,255,.06); border-radius:999px; padding:4px; display:inline-flex; gap:4px;}
+    .toggle button{border:0; background:transparent; color:var(--muted); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:650;}
+    .toggle button.active{background:rgba(255,255,255,.14); color:var(--text);}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="kicker"><span class="dot"></span><span id="kickerText">Centre de formation — Accès BrandSafway / Aluma Safway</span></div>
+        <h1 id="titleText">Ajouter le contact</h1>
+        <p class="sub" id="subText">Scannez le QR ou utilisez un bouton ci-dessous. Sur ordinateur, le fichier vCard se téléchargera et pourra être ouvert dans Outlook / Contacts.</p>
+      </div>
+
+      <div class="toggle" aria-label="Language toggle">
+        <button id="frBtn" class="active" type="button">FR</button>
+        <button id="enBtn" type="button">EN</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <div class="pad">
+          <div class="row">
+            <div class="icon">👤</div>
+            <div>
+              <b id="nameLabel">Nom</b>
+              <span>Jonathan De Longue Épée-Marcil</span>
+              <span style="color:var(--muted); font-size:12.5px;">Formateur | Trainer</span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px;">
+            <div class="icon">📞</div>
+            <div><b id="phoneLabel">Téléphone</b><span><a href="tel:+15142314787">(514) 231-4787</a></span></div>
+          </div>
+
+          <div class="row" style="margin-top:12px;">
+            <div class="icon">✉️</div>
+            <div><b id="emailLabel">Courriel</b><span><a href="mailto:jdelongue@alumasafway.com">jdelongue@alumasafway.com</a></span></div>
+          </div>
+
+          <div class="row" style="margin-top:12px;">
+            <div class="icon">📍</div>
+            <div><b id="addrLabel">Adresse</b><span>9601 Boulevard St-Laurent, Montréal, Québec, H2N 1P6</span></div>
+          </div>
+
+          <div class="actions" role="group" aria-label="Actions">
+            <a id="addBtn" class="btn primary" href="jonathan.vcf" rel="noopener">➕ <span id="addBtnText">Ajouter le contact</span></a>
+            <a id="dlBtn" class="btn secondary" href="jonathan.vcf" download rel="noopener">⬇️ <span id="dlBtnText">Télécharger la vCard (.vcf)</span></a>
+          </div>
+
+          <p class="note" id="noteText"><b>Conseil :</b> si vous êtes sur ordinateur, téléchargez le fichier <i>.vcf</i>, puis ouvrez-le pour l’ajouter à vos contacts (Outlook / Contacts).</p>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="pad">
+          <h2 style="margin:0 0 6px; font-size:18px;" id="qrTitle">QR code</h2>
+          <p class="sub" style="margin:0 0 12px;" id="qrSub">Sur mobile : scannez le QR. Sur PC : cliquez sur le QR pour télécharger la vCard.</p>
+        </div>
+
+        <div class="qrImg">
+          <a id="qrLink" href="jonathan.vcf" rel="noopener" aria-label="QR cliquable">
+            <img src="qr.png" alt="QR code — AlumaSafway / Centre de formation" />
+          </a>
+        </div>
+
+        <div class="pad">
+          <div class="row" style="margin-top:6px;">
+            <div class="icon">ℹ️</div>
+            <div>
+              <b id="helpLabel">Aide</b>
+              <span id="helpText">Si l’ajout ne démarre pas sur votre appareil, utilisez le bouton « Télécharger la vCard » puis ouvrez le fichier.</span>
+            </div>
+          </div>
+          <p class="note" style="margin-bottom:0;" id="privacyText">Cette page sert uniquement à faciliter l’ajout du contact. Aucune donnée n’est collectée.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+<script>
+  const ua = navigator.userAgent || "";
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+
+  // Sur desktop, on ajuste le texte du bouton principal
+  if (!isMobile) {
+    document.getElementById("addBtnText").textContent = "Ouvrir / Télécharger la vCard";
+  }
+
+  const fr = {
+    kicker: "Centre de formation — Accès BrandSafway / Aluma Safway",
+    title: "Ajouter le contact",
+    sub: "Scannez le QR ou utilisez un bouton ci-dessous. Sur ordinateur, le fichier vCard se téléchargera et pourra être ouvert dans Outlook / Contacts.",
+    name: "Nom", phone:"Téléphone", email:"Courriel", addr:"Adresse",
+    addBtn: "Ajouter le contact",
+    dlBtn: "Télécharger la vCard (.vcf)",
+    note: "<b>Conseil :</b> si vous êtes sur ordinateur, téléchargez le fichier <i>.vcf</i>, puis ouvrez-le pour l’ajouter à vos contacts (Outlook / Contacts).",
+    qrTitle:"QR code",
+    qrSub:"Sur mobile : scannez le QR. Sur PC : cliquez sur le QR pour télécharger la vCard.",
+    helpLabel:"Aide",
+    helpText:"Si l’ajout ne démarre pas sur votre appareil, utilisez le bouton « Télécharger la vCard » puis ouvrez le fichier.",
+    privacy:"Cette page sert uniquement à faciliter l’ajout du contact. Aucune donnée n’est collectée."
+  };
+
+  const en = {
+    kicker: "Training Center — Access BrandSafway / Aluma Safway",
+    title: "Add this contact",
+    sub: "Scan the QR code or use a button below. On desktop, the vCard file will download and can be opened in Outlook / Contacts.",
+    name:"Name", phone:"Phone", email:"Email", addr:"Address",
+    addBtn:"Add contact",
+    dlBtn:"Download vCard (.vcf)",
+    note:"<b>Tip:</b> on desktop, download the <i>.vcf</i> file and open it to add the contact (Outlook / Contacts).",
+    qrTitle:"QR code",
+    qrSub:"Mobile: scan the QR. Desktop: click the QR to download the vCard.",
+    helpLabel:"Help",
+    helpText:"If adding doesn’t start automatically, use “Download vCard” and then open the file.",
+    privacy:"This page only helps you add the contact. No data is collected."
+  };
+
+  function setLang(d, active) {
+    document.getElementById("kickerText").textContent = d.kicker;
+    document.getElementById("titleText").textContent  = d.title;
+    document.getElementById("subText").textContent    = d.sub;
+    document.getElementById("nameLabel").textContent  = d.name;
+    document.getElementById("phoneLabel").textContent = d.phone;
+    document.getElementById("emailLabel").textContent = d.email;
+    document.getElementById("addrLabel").textContent  = d.addr;
+    document.getElementById("addBtnText").textContent = d.addBtn;
+    document.getElementById("dlBtnText").textContent  = d.dlBtn;
+    document.getElementById("noteText").innerHTML     = d.note;
+    document.getElementById("qrTitle").textContent    = d.qrTitle;
+    document.getElementById("qrSub").textContent      = d.qrSub;
+    document.getElementById("helpLabel").textContent  = d.helpLabel;
+    document.getElementById("helpText").textContent   = d.helpText;
+    document.getElementById("privacyText").textContent= d.privacy;
+
+    if (!isMobile) {
+      document.getElementById("addBtnText").textContent = (active==="fr")
+        ? "Ouvrir / Télécharger la vCard"
+        : "Open / Download vCard";
+    }
+  }
+
+  document.getElementById("frBtn").addEventListener("click", () => {
+    document.getElementById("frBtn").classList.add("active");
+    document.getElementById("enBtn").classList.remove("active");
+    setLang(fr, "fr"); document.documentElement.lang="fr";
+  });
+
+  document.getElementById("enBtn").addEventListener("click", () => {
+    document.getElementById("enBtn").classList.add("active");
+    document.getElementById("frBtn").classList.remove("active");
+    setLang(en, "en"); document.documentElement.lang="en";
+  });
+
+  setLang(fr, "fr");
+</script>
+</body>
+</html>
