@@ -59,12 +59,32 @@
     .qrImg img{width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:#fff;}
     .toggle{border:1px solid var(--line); background:rgba(255,255,255,.06); border-radius:999px; padding:4px; display:inline-flex; gap:4px;}
     .toggle button{border:0; background:transparent; color:var(--muted); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:650;}
+
     .toggle button.active{background:rgba(255,255,255,.14); color:var(--text);}
-    .leftCard{display:flex; flex-direction:column;}
-    .leftCard .pad{display:flex; flex-direction:column; flex:1;}
-    .brandSpace{flex:1; display:flex; align-items:center; justify-content:center; padding:20px 0 6px;}
-    .brandSpace a{display:inline-flex; align-items:center; justify-content:center; text-decoration:none;}
-    .brandSpace img{display:block; width:min(78%, 360px); max-width:100%; height:auto; opacity:.96;}
+    .brandLogoWrap{
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px 12px 10px;
+    }
+    .brandLogoLink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:16px;
+      transition:transform .12s ease, opacity .15s ease;
+    }
+    .brandLogoLink:hover{transform:translateY(-1px); opacity:.96;}
+    .brandLogo{
+      display:block;
+      width:min(78%, 360px);
+      max-width:100%;
+      height:auto;
+      filter:drop-shadow(0 10px 22px rgba(0,0,0,.18));
+    }
+
   </style>
 </head>
 
@@ -84,7 +104,7 @@
     </header>
 
     <div class="grid">
-      <section class="card leftCard">
+      <section class="card">
         <div class="pad">
           <div class="row">
             <div class="icon">👤</div>
@@ -117,9 +137,9 @@
 
           <p class="note" id="noteText"><b>Conseil :</b> si vous êtes sur ordinateur, téléchargez le fichier <i>.vcf</i>, puis ouvrez-le pour l’ajouter à vos contacts (Outlook / Contacts).</p>
 
-          <div class="brandSpace">
-            <a id="brandLink" href="https://www.hydro-mobile.com/fr" target="_blank" rel="noopener" aria-label="Hydro Mobile">
-              <img src="Logo HM-01.png" alt="Hydro Mobile" />
+          <div class="brandLogoWrap">
+            <a id="brandLogoLink" class="brandLogoLink" href="https://www.hydro-mobile.com/fr" target="_blank" rel="noopener" aria-label="Visiter Hydro Mobile">
+              <img class="brandLogo" src="./Logo%20HM-01.png" alt="Hydro Mobile" />
             </a>
           </div>
         </div>
@@ -173,7 +193,7 @@
     helpLabel:"Aide",
     helpText:"Si l’ajout ne démarre pas sur votre appareil, utilisez le bouton « Télécharger la vCard » puis ouvrez le fichier.",
     privacy:"Cette page sert uniquement à faciliter l’ajout du contact. Aucune donnée n’est collectée.",
-    brandLink:"https://www.hydro-mobile.com/fr"
+    brandUrl:"https://www.hydro-mobile.com/fr"
   };
 
   const en = {
@@ -189,7 +209,7 @@
     helpLabel:"Help",
     helpText:"If adding doesn’t start automatically, use “Download vCard” and then open the file.",
     privacy:"This page only helps you add the contact. No data is collected.",
-    brandLink:"https://www.hydro-mobile.com/en"
+    brandUrl:"https://www.hydro-mobile.com/en"
   };
 
   function setLang(d, active) {
@@ -208,7 +228,6 @@
     document.getElementById("helpLabel").textContent  = d.helpLabel;
     document.getElementById("helpText").textContent   = d.helpText;
     document.getElementById("privacyText").textContent= d.privacy;
-    document.getElementById("brandLink").href = d.brandLink;
 
     if (!isMobile) {
       document.getElementById("addBtnText").textContent = (active==="fr")
