@@ -54,6 +54,10 @@
     .btn.primary{background:linear-gradient(135deg, rgba(242,180,0,.95), rgba(242,180,0,.72)); border-color:rgba(242,180,0,.35); color:#1b1402;}
     .btn.secondary{background:linear-gradient(135deg, rgba(31,111,255,.92), rgba(31,111,255,.62)); border-color:rgba(31,111,255,.35); color:#081225;}
     .note{margin-top:12px; color:var(--muted); font-size:13.5px; line-height:1.45;}
+    .brandLinkWrap{display:flex; justify-content:center; align-items:center; min-height:170px; padding:22px 12px 8px;}
+    .brandLink{display:inline-flex; align-items:center; justify-content:center; max-width:100%; opacity:.96; transition:transform .12s ease, opacity .15s ease;}
+    .brandLink:hover{transform:translateY(-1px); opacity:1;}
+    .brandLink img{display:block; width:min(100%, 340px); height:auto;}
     .qrImg{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.04);}
     .qrImg a{display:block; padding:14px; text-decoration:none;}
     .qrImg img{width:100%; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:#fff;}
@@ -111,6 +115,12 @@
           </div>
 
           <p class="note" id="noteText"><b>Conseil :</b> si vous êtes sur ordinateur, téléchargez le fichier <i>.vcf</i>, puis ouvrez-le pour l’ajouter à vos contacts (Outlook / Contacts).</p>
+
+          <div class="brandLinkWrap">
+            <a id="brandLink" class="brandLink" href="https://www.hydro-mobile.com/fr" target="_blank" rel="noopener noreferrer" aria-label="Hydro Mobile">
+              <img src="Logo HM-01.png" alt="Hydro Mobile" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -161,7 +171,8 @@
     qrSub:"Sur mobile : scannez le QR. Sur PC : cliquez sur le QR pour télécharger la vCard.",
     helpLabel:"Aide",
     helpText:"Si l’ajout ne démarre pas sur votre appareil, utilisez le bouton « Télécharger la vCard » puis ouvrez le fichier.",
-    privacy:"Cette page sert uniquement à faciliter l’ajout du contact. Aucune donnée n’est collectée."
+    privacy:"Cette page sert uniquement à faciliter l’ajout du contact. Aucune donnée n’est collectée.",
+    brandUrl:"https://www.hydro-mobile.com/fr"
   };
 
   const en = {
@@ -176,7 +187,8 @@
     qrSub:"Mobile: scan the QR. Desktop: click the QR to download the vCard.",
     helpLabel:"Help",
     helpText:"If adding doesn’t start automatically, use “Download vCard” and then open the file.",
-    privacy:"This page only helps you add the contact. No data is collected."
+    privacy:"This page only helps you add the contact. No data is collected.",
+    brandUrl:"https://www.hydro-mobile.com/en"
   };
 
   function setLang(d, active) {
@@ -195,6 +207,7 @@
     document.getElementById("helpLabel").textContent  = d.helpLabel;
     document.getElementById("helpText").textContent   = d.helpText;
     document.getElementById("privacyText").textContent= d.privacy;
+    document.getElementById("brandLink").href         = d.brandUrl;
 
     if (!isMobile) {
       document.getElementById("addBtnText").textContent = (active==="fr")
